@@ -51,7 +51,6 @@ api.add_resource(Campers, '/campers')
 
 class CampersById(Resource):
     
-    # CHECK THIS AGAIN: DOES THE ERROR RAISING NEED TO BE THIS COMPLICATED?
     def get(self, id):
         camper = Camper.query.filter_by(id=id).first()
         if not camper:
