@@ -72,7 +72,7 @@ class CampersById(Resource):
         db.session.commit()
         response = make_response(
             camper.to_dict(rules=('-signups',)),
-            200
+            202
         )
         return response
 
