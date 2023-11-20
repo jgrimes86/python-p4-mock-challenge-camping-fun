@@ -61,7 +61,7 @@ class Camper(db.Model, SerializerMixin):
 
     @validates('age')
     def validate_age(self, key, age):
-        if (age <= 8) or (age >= 18):
+        if (age < 8) or (age > 18):
             raise ValueError("Age must be between 8 and 18")
         else:
             return age
@@ -89,7 +89,7 @@ class Signup(db.Model, SerializerMixin):
     # Add validation
     @validates('time')
     def validate_time(self, key, time):
-        if not 0 < time < 23:
+        if not 0 <= time <= 23:
             raise ValueError("Time must be an hour of the day between 0 and 23")
         else:
             return time
